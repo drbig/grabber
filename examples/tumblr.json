@@ -1,0 +1,20 @@
+[{
+  "name": "tumblr {{name}}'s videos",
+  "url": "http://{{name}}.tumblr.com/",
+  "bail": 5,
+  "path": "./",
+  "do": {
+    "command": "none",
+    "action": {
+      "mode": "follow", "type": "xpath",
+      "args": ["//a[text()='{{paging}}']/@href"]
+    },
+    "do": {
+      "command": "print",
+      "action": {
+        "mode": "every", "type": "regexp",
+        "args": [["\\\\x22(http://{{name}}\\.tumblr\\.com/video_file/\\d+/tumblr_.*?)\\\\x22 type=\\\\x22video/(.*?)\\\\x22", "."]]
+      }
+    }
+  }
+}]

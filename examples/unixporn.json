@@ -1,0 +1,20 @@
+[{
+  "name": "reddit's unixporn",
+  "url": "http://www.reddit.com/r/unixporn/",
+  "bail": 25,
+  "path": "./unixporn",
+  "do": {
+    "command": "log",
+    "action": {
+      "mode": "follow", "type": "xpath",
+      "args": ["//a[text()='next ›']/@href"]
+    },
+    "do": {
+      "command": "download",
+      "action": {
+        "mode": "every", "type": "xpath",
+        "args": ["//a[@class='thumbnail may-blank ' and (contains(@href, 'jpg') or contains(@href, 'png') or contains(@href, 'gif'))]/@href"]
+      }
+    }
+  }
+}]

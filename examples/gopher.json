@@ -1,0 +1,20 @@
+[{
+  "name": "gophercon 2014 videos",
+  "url": "http://confreaks.com/events/gophercon2014",
+  "bail": 0,
+  "path": "./",
+  "do": {
+    "command": "none",
+    "action": {
+      "mode": "every", "type": "xpath",
+      "args": ["//div[@class='title']/a/@href"]
+    },
+    "do": {
+      "command": "print",
+      "action": {
+        "mode": "every", "type": "xpath",
+        "args": ["//div[@class='video-frame']/iframe/@src"]
+      }
+    }
+  }
+}]
